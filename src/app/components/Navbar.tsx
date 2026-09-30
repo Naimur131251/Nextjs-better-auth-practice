@@ -9,15 +9,15 @@ export default function Navbar() {
   const link = (
     <>
       <li>
-        <Link href="#">Features</Link>
+        <Link href="/">Features</Link>
       </li>
       <li>
-        <Link href="#" className="font-medium text-accent" aria-current="page">
+        <Link href="/" className="font-medium text-accent" aria-current="page">
           Dashboard
         </Link>
       </li>
       <li>
-        <Link href="#">Pricing</Link>
+        <Link href="/">Pricing</Link>
       </li>
     </>
   );
@@ -25,10 +25,12 @@ export default function Navbar() {
   const authLink = (
     <>
       <li className="mt-4 flex flex-col gap-2 border-t border-separator pt-4">
-        <Link href="#" className="block py-2">
+        <Link href="/sign-in" className="block py-2">
           Login
         </Link>
-        <Button className="w-full">Sign Up</Button>
+        <Link href="/sign-up">
+          <Button className="w-full">Sign Up</Button>
+        </Link>
       </li>
     </>
   );
@@ -74,8 +76,10 @@ export default function Navbar() {
         </div>
         <ul className="hidden items-center gap-4 md:flex">{link}</ul>
         <div className="hidden items-center gap-4 md:flex">
-          <Link href="#">Login</Link>
-          <Button>Sign Up</Button>
+          <Link href="/sign-in">Login</Link>
+          <Link href="/sign-up">
+              <Button>Sign Up</Button>
+          </Link>
         </div>
       </header>
       {isMenuOpen && (
