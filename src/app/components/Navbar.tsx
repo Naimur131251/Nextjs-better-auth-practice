@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link, Button } from "@heroui/react";
-import { useSession } from "@/lib/auth-client";
+import { signOut, useSession } from "@/lib/auth-client";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,12 +29,12 @@ export default function Navbar() {
   const authLink = session?.user ? (
     <>
       <span>Hello {session.user.name}</span>
-      <button type="button">Sign out</button>
+      <Button onClick={() => signOut()}>Sign Out</Button>
     </>
   ) : (
     <>
-      <li className="mt-4 flex flex-col gap-2 border-t border-separator pt-4">
-        <Link href="/sign-in" className="block py-2">
+      <li className="flex gap-2">
+        <Link href="/sign-in" className="block py-2 active:border-b active:border-b-blue-900">
           Login
         </Link>
         <Link href="/sign-up">
